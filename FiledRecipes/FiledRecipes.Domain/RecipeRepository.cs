@@ -127,5 +127,19 @@ namespace FiledRecipes.Domain
                 handler(this, e);
             }
         }
+
+
+        public virtual void Load()
+        {
+            List<IRecipe> recipes = new List<IRecipe> ();
+
+
+           // throw new NotImplementedException();
+        }
+
+        public virtual void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

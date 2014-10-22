@@ -133,6 +133,17 @@ namespace FiledRecipes.Domain
         {
             List<IRecipe> recipes = new List<IRecipe> ();
 
+            RecipeReadStatus myrecipe = RecipeReadStatus;
+          
+            try
+            {
+                using (StreamReader reader = new StreamReader(_path))
+                {
+                    string line;
+                }
+
+
+            }
 
            // throw new NotImplementedException();
         }

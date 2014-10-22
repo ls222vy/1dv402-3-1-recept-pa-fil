@@ -131,21 +131,28 @@ namespace FiledRecipes.Domain
 
         public virtual void Load()
         {
-            List<IRecipe> recipes = new List<IRecipe> ();
-
-            RecipeReadStatus myrecipe = RecipeReadStatus;
-          
+            List<IRecipe> recipes = new List<IRecipe>();
             try
             {
                 using (StreamReader reader = new StreamReader(_path))
                 {
                     string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        switch (line)
+                        {
+                            case SectionRecipe:
+                            case SectionIngredients:
+                            case SectionInstructions:
+                            default: break;
+                        }
+                    }
                 }
-
-
             }
-
-           // throw new NotImplementedException();
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public virtual void Save()
@@ -153,4 +160,5 @@ namespace FiledRecipes.Domain
             throw new NotImplementedException();
         }
     }
+    
 }

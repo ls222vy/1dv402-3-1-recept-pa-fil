@@ -132,6 +132,8 @@ namespace FiledRecipes.Domain
         public virtual void Load()
         {
             List<IRecipe> recipes = new List<IRecipe>();
+            RecipeReadStatus status = RecipeReadStatus.Indefinite;// läser statusen för nästa rad
+
             try
             {
                 using (StreamReader reader = new StreamReader(_path))
@@ -139,12 +141,32 @@ namespace FiledRecipes.Domain
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        switch (line)
+                        if (!string.IsNullOrWhiteSpace(line)) // Om det är en tom rad
                         {
-                            case SectionRecipe:
-                            case SectionIngredients:
-                            case SectionInstructions:
-                            default: break;
+                            if (line == SectionRecipe)
+                            {
+                                status = RecipeReadStatus.New; // sätt status till att nästa rad som läses in kommer att vara receptets namn.
+                                 
+                            }
+                            else if (line == SectionIngredients)
+                            {
+                                status = RecipeReadStatus.Ingredient;
+                            }
+                            else if (line == SectionInstructions)
+                            {
+                                status = RecipeReadStatus.Instruction;
+                            }
+                            else 
+                            {
+                                if (status == RecipeReadStatus.New) 
+                                {
+                                    throw new Exception();
+                                }
+                                else if ( status)
+                               
+                                  
+
+                            }
                         }
                     }
                 }

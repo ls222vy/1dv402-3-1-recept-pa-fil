@@ -1,1 +1,5 @@
 P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.exe.config
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.csprojResolveAssemblyReference.cache
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.resources
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.sv-SE.resources
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.csproj.GenerateResource.Cache

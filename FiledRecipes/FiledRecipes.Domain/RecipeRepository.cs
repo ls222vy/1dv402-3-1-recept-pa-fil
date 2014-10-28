@@ -131,56 +131,93 @@ namespace FiledRecipes.Domain
 
         public virtual void Load()
         {
+            Recipe recipe = null;
+           //Lista för alla recept.
+           
             List<IRecipe> recipes = new List<IRecipe>();
             RecipeReadStatus status = RecipeReadStatus.Indefinite;// läser statusen för nästa rad
 
-            try
-            {
-                using (StreamReader reader = new StreamReader(_path))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        if (!string.IsNullOrWhiteSpace(line)) // Om det är en tom rad
-                        {
-                            if (line == SectionRecipe)
-                            {
-                                status = RecipeReadStatus.New; // sätt status till att nästa rad som läses in kommer att vara receptets namn.
-                                 
-                            }
-                            else if (line == SectionIngredients)
-                            {
-                                status = RecipeReadStatus.Ingredient;
-                            }
-                            else if (line == SectionInstructions)
-                            {
-                                status = RecipeReadStatus.Instruction;
-                            }
-                            else 
-                            {
-                                if (status == RecipeReadStatus.New) 
-                                {
-                                    throw new Exception();
-                                }
-                                else if ( status)
-                               
-                                  
 
+            using (StreamReader reader = new StreamReader(_path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    //Validerar vilken section man är på och  sätter statusen efter det
+
+                    if (!string.IsNullOrWhiteSpace(line)) // Om det är en tom rad
+                    {
+                        if (line == SectionRecipe)
+                        {
+                            status = RecipeReadStatus.New; // sätt status till att nästa rad som läses in kommer att vara receptets namn.
+
+                        }
+                        else if (line == SectionIngredients)
+                        {
+                            status = RecipeReadStatus.Ingredient;
+                        }
+                        else if (line == SectionInstructions)
+                        {
+                            status = RecipeReadStatus.Instruction;
+                        }
+                        else
+                        {
+                            if (status == RecipeReadStatus.New)
+                            {
+                                //Skapa ett nytt recept i listan.
+                                recipe = new Recipe(line);
+                                recipes.Add(recipe);
                             }
+                            else if (status == RecipeReadStatus.Ingredient)
+                            {
+                                string[] ingredients = line.Split(';');
+
+                                if (ingredients.Length != 3)
+                                {
+                                    throw new FileFormatException();
+                                }
+                                // Lägger in alla delar av ingredeints i arrayen
+                                Ingredient ingredient = new Ingredient();
+                                ingredient.Amount = ingredients[0];
+                                ingredient.Measure = ingredients[1];
+                                ingredient.Name = ingredients[2];
+
+                                // Lägger till ingredients till arrayen
+
+                                recipe.Add(ingredient);
+                            }
+                            else if (status == RecipeReadStatus.Instruction)
+                            {
+                                //Lägger till instruction
+                                recipe.Add(line);
+                            }
+                            else
+                            {
+                                throw new FileFormatException();
+                            }
+
+
+
+
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
 
+
+
+                //Sortera recept efter namnet
+            }   
+             recipes.Sort();
+            _recipes = recipes;
+           
+         IsModified = false;
+        OnRecipesChanged(EventArgs.Empty);
+       }         
         public virtual void Save()
         {
-            throw new NotImplementedException();
+            throw new FileFormatException();
         }
-    }
     
+    }
+ 
 }

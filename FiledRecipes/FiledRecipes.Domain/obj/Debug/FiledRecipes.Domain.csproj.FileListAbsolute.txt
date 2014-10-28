@@ -1,0 +1,5 @@
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes.Domain\bin\Debug\FiledRecipes.Domain.dll
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes.Domain\bin\Debug\FiledRecipes.Domain.pdb
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes.Domain\obj\Debug\FiledRecipes.Domain.csprojResolveAssemblyReference.cache
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes.Domain\obj\Debug\FiledRecipes.Domain.dll
+P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes.Domain\obj\Debug\FiledRecipes.Domain.pdb

@@ -3,3 +3,22 @@ P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledR
 P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.resources
 P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.sv-SE.resources
 P:\uppgifter\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.csproj.GenerateResource.Cache
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.exe.config
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.csprojResolveAssemblyReference.cache
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.resources
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.Properties.Strings.sv-SE.resources
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.csproj.GenerateResource.Cache
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.exe
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.pdb
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\sv-SE\FiledRecipes.resources.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.Domain.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\FiledRecipes.Domain.pdb
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\sv-SE\FiledRecipes.resources.dll
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.exe
+C:\Users\lotiz\Documents\Visual Studio 2013\Projects\1dv402-3-1-recept-pa-fil\FiledRecipes\FiledRecipes\obj\Debug\FiledRecipes.pdb

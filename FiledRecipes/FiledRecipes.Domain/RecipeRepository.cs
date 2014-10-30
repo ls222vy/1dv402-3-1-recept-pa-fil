@@ -132,15 +132,16 @@ namespace FiledRecipes.Domain
         public virtual void Load()
         {
             Recipe recipe = null;
-           //Lista för alla recept.
-           
-            List<IRecipe> recipes = new List<IRecipe>();
-            RecipeReadStatus status = RecipeReadStatus.Indefinite;// läser statusen för nästa rad
-
-
-            using (StreamReader reader = new StreamReader(_path))
+          
+            //Lista för alla recept.
+            List<IRecipe> recipes = new List<IRecipe>(); //Klassen List  kapslar in vanlig array
+            
+            RecipeReadStatus status = RecipeReadStatus.Indefinite; //Läser statusen för nästa rad
+                       
+            using (StreamReader reader = new StreamReader(_path)) //Öppnar filen
             {
-                string line;
+                string line; // Deklarera variablen vilka rad ska läsa in
+              
                 while ((line = reader.ReadLine()) != null)
                 {
                     //Validerar vilken section man är på och  sätter statusen efter det
@@ -170,14 +171,17 @@ namespace FiledRecipes.Domain
                             }
                             else if (status == RecipeReadStatus.Ingredient)
                             {
-                                string[] ingredients = line.Split(';');
+                                string[] ingredients = line.Split(';'); //Split delar upp rader och returnerar en array med stringar
 
                                 if (ingredients.Length != 3)
                                 {
                                     throw new FileFormatException();
                                 }
+                               
                                 // Lägger in alla delar av ingredeints i arrayen
-                                Ingredient ingredient = new Ingredient();
+                                                                
+                               Ingredient ingredient = new Ingredient();
+                                                        
                                 ingredient.Amount = ingredients[0];
                                 ingredient.Measure = ingredients[1];
                                 ingredient.Name = ingredients[2];
@@ -196,26 +200,52 @@ namespace FiledRecipes.Domain
                                 throw new FileFormatException();
                             }
 
-
-
-
                         }
                     }
                 }
 
+                
+            }
 
-
-                //Sortera recept efter namnet
-            }   
-             recipes.Sort();
-            _recipes = recipes;
+                recipes.TrimExcess();// Ta bort tomma rader
            
-         IsModified = false;
-        OnRecipesChanged(EventArgs.Empty);
+                //Sortera recept efter namnet
+                IEnumerable<IRecipe> sortedRecipes = recipes.OrderBy(r => r.Name);
+
+                _recipes = new List<IRecipe>(sortedRecipes);
+         
+                // Tilldela avsedd egenskap i klassen, IsModified, ett värdet som indekerar att listan med recept är oförändrad.
+                 IsModified = false;
+                 OnRecipesChanged(EventArgs.Empty);
        }         
+       
         public virtual void Save()
         {
-            throw new FileFormatException();
+           // Metod att spara recept. Deklarera
+            using (StreamWriter writer = new StreamWriter(_path)) 
+            {
+                foreach (Recipe recipes in _recipes) 
+                {
+                    writer.WriteLine(SectionRecipe);
+                    writer.WriteLine(recipes.Name);
+                    writer.WriteLine(SectionIngredients);
+
+                    foreach (Ingredient ingredient in recipes.Ingredients)
+                    {
+                        writer.WriteLine("{0};{1};{2}", ingredient.Amount, ingredient.Measure, ingredient.Name);
+                    }
+
+                    writer.WriteLine(SectionInstructions);
+
+                    foreach (var instruction in recipes.Instructions) 
+                    {
+                        writer.WriteLine(instruction);
+                    }
+                
+                }
+            
+            }
+
         }
     
     }

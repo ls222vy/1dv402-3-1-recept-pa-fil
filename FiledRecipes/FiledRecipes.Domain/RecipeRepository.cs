@@ -136,7 +136,7 @@ namespace FiledRecipes.Domain
             //Lista för alla recept.
             List<IRecipe> recipes = new List<IRecipe>(); //Klassen List  kapslar in vanlig array
             
-            RecipeReadStatus status = RecipeReadStatus.Indefinite; //Läser statusen för nästa rad
+            RecipeReadStatus status = RecipeReadStatus.Indefinite; //Är en uppräkningsbara och håller ordingen vilken typ av data som lästs in från text filen.
                        
             using (StreamReader reader = new StreamReader(_path)) //Öppnar filen
             {

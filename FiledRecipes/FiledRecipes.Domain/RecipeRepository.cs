@@ -211,10 +211,12 @@ namespace FiledRecipes.Domain
            
                 //Sortera recept efter namnet
                 IEnumerable<IRecipe> sortedRecipes = recipes.OrderBy(r => r.Name);
-
-                _recipes = new List<IRecipe>(sortedRecipes);
-         
-                // Tilldela avsedd egenskap i klassen, IsModified, ett värdet som indekerar att listan med recept är oförändrad.
+                 // recipes.Sort();
+               
+                  _recipes = new List<IRecipe>(sortedRecipes);
+                 // _recipes = recipes;
+               
+            // Tilldela avsedd egenskap i klassen, IsModified, ett värdet som indekerar att listan med recept är oförändrad.
                  IsModified = false;
                  OnRecipesChanged(EventArgs.Empty);
        }         

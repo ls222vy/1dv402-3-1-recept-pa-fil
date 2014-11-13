@@ -12,17 +12,17 @@ namespace FiledRecipes.Views
     /// </summary>
     public class RecipeView : ViewBase, IRecipeView
     {
-        public void Show (IRecipe recipes) 
+        public void Show (IRecipe recipe) 
         {
             Console.Clear();
           
             //Skriver ut receptets namn i en header
-            Header = recipes.Name;
+            Header = recipe.Name;
             ShowHeaderPanel();
 
             //Skriver ut ingredienserna
             Console.WriteLine("\nIngredienser\n============");
-            foreach (Ingredient ingredient in recipes.Ingredients) 
+            foreach (IIngredient ingredient in recipe.Ingredients) 
             {
                 Console.WriteLine(ingredient);
             
@@ -30,7 +30,7 @@ namespace FiledRecipes.Views
             //Skriver ut instruktionerna
             Console.WriteLine("\nGör så här\n===============");
 
-            foreach (var instruction in recipes.Instructions)
+            foreach (string instruction in recipe.Instructions)
             {
                 Console.WriteLine(instruction);
             }
@@ -39,7 +39,7 @@ namespace FiledRecipes.Views
         public void Show(IEnumerable<IRecipe> recipes)
         {
             //Skriver ut recept, ingredienser och intruktioner
-            foreach (var recipe in recipes)
+            foreach (IRecipe recipe in recipes)
             {
                 Show(recipe);
                 ContinueOnKeyPressed();

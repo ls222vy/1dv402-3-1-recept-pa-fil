@@ -150,7 +150,7 @@ namespace FiledRecipes.Domain
                     {
                         if (line == SectionRecipe)
                         {
-                            status = RecipeReadStatus.New; // sätt status till att nästa rad som läses in kommer att vara receptets namn.
+                            status = RecipeReadStatus.New; // sätt status till att nästa rad som läses in.
 
                         }
                         else if (line == SectionIngredients)
@@ -171,7 +171,7 @@ namespace FiledRecipes.Domain
                             }
                             else if (status == RecipeReadStatus.Ingredient)
                             {
-                                string[] ingredients = line.Split(';'); //Split delar upp rader och returnerar en array med stringar
+                                string[] ingredients = line.Split(';'); //Split delar upp rader och returnerar en array med stringaroch sätter simicolon.
 
                                 if (ingredients.Length != 3)
                                 {
@@ -210,36 +210,35 @@ namespace FiledRecipes.Domain
                 recipes.TrimExcess();// Ta bort tomma rader
            
                 //Sortera recept efter namnet
-                IEnumerable<IRecipe> sortedRecipes = recipes.OrderBy(r => r.Name);
+                //IEnumerable<IRecipe> sortedRecipes = 
                  // recipes.Sort();
                
-                  _recipes = new List<IRecipe>(sortedRecipes);
+                  _recipes = recipes.OrderBy(r => r.Name).ToList();//new List<IRecipe>(sortedRecipes);
                  // _recipes = recipes;
                
-            // Tilldela avsedd egenskap i klassen, IsModified, ett värdet som indekerar att listan med recept är oförändrad.
+            //  IsModified, ett värdet som indekerar att listan med recept är oförändrad.
                  IsModified = false;
                  OnRecipesChanged(EventArgs.Empty);
        }         
        
         public virtual void Save()
         {
-           // Metod att spara recept. Deklarera
             using (StreamWriter writer = new StreamWriter(_path)) 
             {
-                foreach (Recipe recipes in _recipes) 
+                foreach (IRecipe recipes in _recipes) 
                 {
                     writer.WriteLine(SectionRecipe);
                     writer.WriteLine(recipes.Name);
                     writer.WriteLine(SectionIngredients);
 
-                    foreach (Ingredient ingredient in recipes.Ingredients)
+                    foreach (IIngredient ingredient in recipes.Ingredients)
                     {
                         writer.WriteLine("{0};{1};{2}", ingredient.Amount, ingredient.Measure, ingredient.Name);
                     }
 
                     writer.WriteLine(SectionInstructions);
 
-                    foreach (var instruction in recipes.Instructions) 
+                    foreach (String instruction in recipes.Instructions) 
                     {
                         writer.WriteLine(instruction);
                     }
